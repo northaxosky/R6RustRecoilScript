@@ -1,7 +1,7 @@
 use std::sync::{Arc, atomic::{AtomicBool, Ordering}};
 use std::thread;
 use std::time::Duration;
-use enigo::{Enigo, MouseControllable};
+use enigo::{Enigo, Mouse, Coordinate, Settings};
 use rdev::{listen, EventType, Key};
 use eframe::egui;
 
@@ -19,17 +19,17 @@ fn main() {
     let right_button = Arc::new(AtomicBool::new(false));
     let left_button = Arc::new(AtomicBool::new(false));
 
-    // Spawn movement thread
+    // Spawn recoil control thread
     let rb_clone = Arc::clone(&right_button);
     let lb_clone = Arc::clone(&left_button);
     thread::spawn(move || {
-        let mut enigo = Enigo::new();
+        let mut enigo = Enigo::new(&Settings::default()).unwrap();
         loop {
             if IS_ACTIVE.load(Ordering::SeqCst)
                 && rb_clone.load(Ordering::SeqCst)
                 && lb_clone.load(Ordering::SeqCst)
             {
-                enigo.mouse_move_relative(0, RECOIL_STRENGTH);
+                let _ = enigo.move_mouse(0, RECOIL_STRENGTH, Coordinate::Rel);
                 thread::sleep(MOVE_INTERVAL);
             } else {
                 thread::sleep(IDLE_SLEEP);
@@ -61,14 +61,12 @@ fn main() {
 
     // Launch the GUI
     let options = eframe::NativeOptions {
-        initial_window_size: Some(egui::vec2(600.0, 600.0)),
-        resizable: true, // Allow resizing of the window
         ..Default::default()
     };
     eframe::run_native(
         "Recoil Control GUI",
         options,
-        Box::new(|_cc| Box::new(MyApp::default())),
+        Box::new(|_cc| Ok(Box::new(MyApp::default()))),
     ).expect("Failed to start eframe");
 }
 
@@ -82,11 +80,6 @@ impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
         // Synchronize GUI state with the global IS_ACTIVE flag
         self.is_active = IS_ACTIVE.load(Ordering::SeqCst);
-
-        // Set the window size
-        _frame.set_window_size(egui::vec2(450.0, 600.0));
-        _frame.set_window_title("Recoil Controller");
-
 
         // Adjust the style for larger buttons and text
         let mut style = (*ctx.style()).clone();
@@ -128,7 +121,7 @@ impl eframe::App for MyApp {
                 ui.label("Select Operator:");
                 let operators = ["Ash", "Mira", "Doc"];
                 let selected_operator = &mut self.selected_operator;
-                egui::ComboBox::from_id_source("operators")
+                egui::ComboBox::from_id_salt("operators")
                     .width(ui.available_width()) // Make the ComboBox fill the row
                     .selected_text(selected_operator.clone())
                     .show_ui(ui, |ui| {
