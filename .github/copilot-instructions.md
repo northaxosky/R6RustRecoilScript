@@ -28,6 +28,7 @@ This project is a Rust-based recoil control script for Rainbow Six Siege. The fo
 6. **Code Quality**:
    - Follow Rust best practices for code readability and maintainability.
    - Use meaningful variable names and add comments where necessary to explain complex logic.
+   - Do not remove any "TODO" comments. Unless you are certain you are completing the TODO job.
 
 7. **Testing**:
    - Test the script thoroughly to ensure it behaves as expected under different scenarios.

@@ -60,7 +60,11 @@ fn main() {
     });
 
     // Launch the GUI
-    let options = eframe::NativeOptions::default();
+    let options = eframe::NativeOptions {
+        initial_window_size: Some(egui::vec2(600.0, 600.0)),
+        resizable: true, // Allow resizing of the window
+        ..Default::default()
+    };
     eframe::run_native(
         "Recoil Control GUI",
         options,
@@ -71,6 +75,7 @@ fn main() {
 #[derive(Default)]
 struct MyApp {
     is_active: bool,
+    selected_operator: String,
 }
 
 impl eframe::App for MyApp {
@@ -78,20 +83,62 @@ impl eframe::App for MyApp {
         // Synchronize GUI state with the global IS_ACTIVE flag
         self.is_active = IS_ACTIVE.load(Ordering::SeqCst);
 
+        // Set the window size
+        _frame.set_window_size(egui::vec2(450.0, 600.0));
+        _frame.set_window_title("Recoil Controller");
+
+
+        // Adjust the style for larger buttons and text
+        let mut style = (*ctx.style()).clone();
+        style.spacing.button_padding = egui::vec2(10.0, 10.0); // Increase button padding
+        style.spacing.item_spacing = egui::vec2(20.0, 20.0); // Adjust spacing between elements
+        style.text_styles = [
+            (egui::TextStyle::Heading, egui::FontId::proportional(40.0)), // Larger heading
+            (egui::TextStyle::Body, egui::FontId::proportional(30.0)),    // Larger body text
+            (egui::TextStyle::Button, egui::FontId::proportional(30.0)),  // Define Button text style
+        ].into();
+        ctx.set_style(style);
+
         egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("Recoil Control");
+            ui.vertical_centered(|ui| {
+                ui.heading("Recoil Control");
 
-            if ui.button("On").clicked() {
-                IS_ACTIVE.store(true, Ordering::SeqCst);
-                println!("Recoil control activated");
-            }
+                ui.vertical_centered(|ui| {
+                    let button_height = 40.0;
+                    let button_width = ui.available_width() / 2.0;
 
-            if ui.button("Off").clicked() {
-                IS_ACTIVE.store(false, Ordering::SeqCst);
-                println!("Recoil control deactivated");
-            }
+                    // Add a spacer to ensure alignment
+                    ui.add_space(1.0);
 
-            ui.label(format!("Status: {}", if self.is_active { "On" } else { "Off" }));
+                    if ui.add_sized([button_width, button_height], egui::Button::new("On")).clicked() {
+                        IS_ACTIVE.store(true, Ordering::SeqCst);
+                        println!("Recoil control activated");
+                    }
+
+                    if ui.add_sized([button_width, button_height], egui::Button::new("Off")).clicked() {
+                        IS_ACTIVE.store(false, Ordering::SeqCst);
+                        println!("Recoil control deactivated");
+                    }
+                });
+
+                ui.label(format!("Status: {}", if self.is_active { "On" } else { "Off" }));
+
+                ui.separator(); // Add a separator for better UI organization
+
+                ui.label("Select Operator:");
+                let operators = ["Ash", "Mira", "Doc"];
+                let selected_operator = &mut self.selected_operator;
+                egui::ComboBox::from_id_source("operators")
+                    .width(ui.available_width()) // Make the ComboBox fill the row
+                    .selected_text(selected_operator.clone())
+                    .show_ui(ui, |ui| {
+                        for operator in &operators {
+                            if ui.selectable_value(selected_operator, operator.to_string(), *operator).clicked() {
+                                println!("Selected operator: {}", selected_operator);
+                            }
+                        }
+                    });
+            });
         });
 
         // Always request repaint to keep UI in sync with keybind toggles
