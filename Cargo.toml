@@ -1,0 +1,9 @@
+[package]
+name = "recoil_control"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+enigo = "0.0.14"
+rdev = "0.5.0"
+eframe = "0.22"
