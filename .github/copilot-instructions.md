@@ -11,7 +11,7 @@ This project is a Rust-based recoil control script for Rainbow Six Siege. The fo
 
 2. **GUI Integration**:
    - The GUI is built using the `eframe` crate.
-   - The GUI should include buttons to toggle the recoil control script on and off.
+   - The GUI will have multiple options that will affect the recoil control script.
    - Ensure the GUI and recoil control logic run concurrently without blocking each other.
 
 3. **Error Handling**:
