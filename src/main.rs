@@ -1,8 +1,8 @@
 mod gui;
 mod recoil;
 
-use std::sync::{Arc, atomic::AtomicBool};
 use eframe::NativeOptions;
+use std::sync::{Arc, atomic::AtomicBool};
 
 fn main() {
     // Button state via Arc
@@ -21,5 +21,6 @@ fn main() {
         "Recoil Control GUI",
         options,
         Box::new(|_cc| Ok(Box::new(gui::MyApp::default()))),
-    ).expect("Failed to start eframe");
+    )
+    .expect("Failed to start eframe");
 }

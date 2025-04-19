@@ -1,9 +1,12 @@
 // Move recoil control logic to this module
-use std::sync::{Arc, atomic::{AtomicBool, AtomicI32, Ordering}};
+use enigo::{Enigo, MouseControllable};
+use rdev::{EventType, Key, listen};
+use std::sync::{
+    Arc,
+    atomic::{AtomicBool, AtomicI32, Ordering},
+};
 use std::thread;
 use std::time::Duration;
-use enigo::{Enigo, MouseControllable};
-use rdev::{listen, EventType, Key};
 
 pub static IS_ACTIVE: AtomicBool = AtomicBool::new(false);
 pub static RECOIL_STRENGTH: AtomicI32 = AtomicI32::new(0);
@@ -35,19 +38,24 @@ pub fn start_input_listener(right_button: Arc<AtomicBool>, left_button: Arc<Atom
     let rb_clone2 = Arc::clone(&right_button);
     let lb_clone2 = Arc::clone(&left_button);
     thread::spawn(move || {
-        if let Err(err) = listen(move |event| {
-            match event.event_type {
-                EventType::ButtonPress(rdev::Button::Right) => rb_clone2.store(true, Ordering::SeqCst),
-                EventType::ButtonPress(rdev::Button::Left) => lb_clone2.store(true, Ordering::SeqCst),
-                EventType::ButtonRelease(rdev::Button::Right) => rb_clone2.store(false, Ordering::SeqCst),
-                EventType::ButtonRelease(rdev::Button::Left) => lb_clone2.store(false, Ordering::SeqCst),
-                EventType::KeyRelease(Key::Home) => {
-                    let curr = IS_ACTIVE.load(Ordering::SeqCst);
-                    IS_ACTIVE.store(!curr, Ordering::SeqCst);
-                    println!("Recoil control {} via Home key", if !curr { "activated" } else { "deactivated" });
-                }
-                _ => {},
+        if let Err(err) = listen(move |event| match event.event_type {
+            EventType::ButtonPress(rdev::Button::Right) => rb_clone2.store(true, Ordering::SeqCst),
+            EventType::ButtonPress(rdev::Button::Left) => lb_clone2.store(true, Ordering::SeqCst),
+            EventType::ButtonRelease(rdev::Button::Right) => {
+                rb_clone2.store(false, Ordering::SeqCst)
             }
+            EventType::ButtonRelease(rdev::Button::Left) => {
+                lb_clone2.store(false, Ordering::SeqCst)
+            }
+            EventType::KeyRelease(Key::Home) => {
+                let curr = IS_ACTIVE.load(Ordering::SeqCst);
+                IS_ACTIVE.store(!curr, Ordering::SeqCst);
+                println!(
+                    "Recoil control {} via Home key",
+                    if !curr { "activated" } else { "deactivated" }
+                );
+            }
+            _ => {}
         }) {
             eprintln!("Listener error: {:?}", err);
         }
