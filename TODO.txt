@@ -1,0 +1,6 @@
+1. Add Profile Presets
+2. Look into horizontal recoil 
+3. Add a minimal vertical recoil mode
+4.  
+
+
