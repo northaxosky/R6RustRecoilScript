@@ -2,6 +2,8 @@
 
 This project is a Rust-based recoil control script designed for Rainbow Six Siege. It provides a GUI for configuring recoil settings and simulates mouse movements to counteract weapon recoil during gameplay.
 
+I have purposefully over-engineered some aspects since I am trying to learn Rust for work.
+
 ## Features
 
 - **Recoil Control Logic**: Simulates mouse movement to counteract recoil when both left and right mouse buttons are pressed.
