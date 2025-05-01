@@ -1,7 +1,8 @@
 mod gui;
 mod recoil;
+mod operators;
 
-use eframe::NativeOptions;
+use eframe::{egui, NativeOptions};
 use std::sync::{Arc, atomic::AtomicBool};
 
 fn main() {
@@ -15,7 +16,9 @@ fn main() {
 
     // Launch the GUI
     let options = NativeOptions {
+        viewport: egui::ViewportBuilder::default().with_inner_size([600.0, 800.0]),
         ..Default::default()
+        
     };
     eframe::run_native(
         "Recoil Control GUI",

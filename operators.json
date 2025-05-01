@@ -1,0 +1,357 @@
+[
+  {
+    "name": "Mute",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Smoke",
+    "default_strength": 10,
+    "current_strength": 10
+  },
+  {
+    "name": "Castle",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Pulse",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Doc",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Rook",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Kapkan",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Tachanka",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Jäger",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Bandit",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Frost",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Valkyrie",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Caveira",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Echo",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Mira",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Lesion",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Ela",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Vigil",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Maestro",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Alibi",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Clash",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Kaid",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Mozzie",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Warden",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Goyo",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Wamai",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Oryx",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Melusi",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Aruni",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Thunderbird",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Thorn",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Azami",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Solis",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Fenrir",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Tubarão",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Skopós",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Sledge",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Thatcher",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Ash",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Thermite",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Twitch",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Montagne",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Glaz",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Fuze",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Blitz",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "IQ",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Buck",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Blackbeard",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Capitão",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Hibana",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Jackal",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Ying",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Zofia",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Dokkaebi",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Lion",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Finka",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Maverick",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Nomad",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Gridlock",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Nøkk",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Amaru",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Kali",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Iana",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Ace",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Zero (Sam Fisher)",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Flores",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Sens",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Grim",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Brava",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Ram",
+    "default_strength": 5,
+    "current_strength": 5
+  },
+  {
+    "name": "Deimos",
+    "default_strength": 5,
+    "current_strength": 5
+  }
+]

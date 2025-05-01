@@ -1,6 +1,6 @@
 1. Add Profile Presets
 2. Look into horizontal recoil 
 3. Add a minimal vertical recoil mode
-4.  
+4. Look into consistency with different DPI, Screen res, resolution, aspect ratio etc...
 
 

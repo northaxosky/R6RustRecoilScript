@@ -1,4 +1,3 @@
-// Move recoil control logic to this module
 use enigo::{Enigo, MouseControllable};
 use rdev::{EventType, Key, listen};
 use std::sync::{
