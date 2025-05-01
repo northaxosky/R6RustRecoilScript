@@ -23,7 +23,7 @@ This project is a Rust-based recoil control script designed for Rainbow Six Sieg
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/northaxosky/R6RustRecoilScript
    cd recoil_control
    ```
 
@@ -58,7 +58,7 @@ This project is a Rust-based recoil control script designed for Rainbow Six Sieg
 
 ## Contributing
 
-I have no idea how to use Rust please feel free
+I have no idea how to use Rust please feel free.
 
 ## License
 
