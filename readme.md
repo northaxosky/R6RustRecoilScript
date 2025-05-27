@@ -19,7 +19,7 @@ I have purposefully over-engineered some aspects since I am trying to learn Rust
 ### Prerequisites
 
 - Rust programming language installed. You can download it from [rust-lang.org](https://www.rust-lang.org/).
-- Git is installed. You can download it from [git](https://git-scm.com/downloads)
+- Git is installed. You can download it from [git](https://git-scm.com/downloads).
 - Windows operating system (required for compatibility & idek if Rainbow Six Siege is on other platforms).
 
 ### Installation
@@ -27,7 +27,7 @@ I have purposefully over-engineered some aspects since I am trying to learn Rust
 1. Clone the repository:
    ```bash
    git clone https://github.com/northaxosky/R6RustRecoilScript
-   cd recoil_control
+   cd R6RustRecoilScript
    ```
 
 2. Build the project:
